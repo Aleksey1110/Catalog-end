@@ -5,7 +5,7 @@ const Car = require('../models/catalogs');
 // Папка контроллеров
 const ctrlDetails = require('../controllers/details');
 
-// Http контроллеров
+// Http контроллеры
 router.get('/api', ctrlDetails.list);
 router.get('/api/:carid', ctrlDetails.markModelList);
 router.get('/api/:carid/:modelid', ctrlDetails.modelModificationList);
