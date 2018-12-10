@@ -1,0 +1,24 @@
+{
+  "name": "carscats",
+  "version": "1.0.0",
+  "description": "Car details catalog",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "cookie-parser": "*",
+    "cors": "^2.8.5",
+    "debug": "*",
+    "express": "*",
+    "http-errors": "*",
+    "jade": "*",
+    "mongoose": "^5.3.12",
+    "morgan": "*",
+    "npm": "*",
+    "request": "*"
+  },
+  "author": "Posysoev, Satonin",
+  "license": "ISC"
+}

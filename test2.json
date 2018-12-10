@@ -1,0 +1,60 @@
+[
+    {
+        "details": [
+            {
+                "originalNumber": [
+                    "94797406",
+                    "96395221",
+                    "96458873",
+                    "1111111",
+                    "1111111",
+                    "1111111"
+                ],
+                "analogueNumber": [
+                    {
+                        "_id": "5c0b780f9bc83c3584f9b717",
+                        "analogueName": "Filtron",
+                        "analogueNum": "OP570"
+                    },
+                    {
+                        "_id": "5c0b780f9bc83c3584f9b716",
+                        "analogueName": "Mann",
+                        "analogueNum": "W71222"
+                    }
+                ],
+                "_id": "5c0b780f9bc83c3584f9b715",
+                "detailName": "Oil filter",
+                "note": "",
+                "picture": ""
+            },
+            {
+                "originalNumber": [
+                    "92060868"
+                ],
+                "analogueNumber": [
+                    {
+                        "_id": "5c0b780f9bc83c3584f9b714",
+                        "analogueName": "Filtron",
+                        "analogueNum": "AP082"
+                    },
+                    {
+                        "_id": "5c0b780f9bc83c3584f9b713",
+                        "analogueName": "Mann",
+                        "analogueNum": "C2598"
+                    }
+                ],
+                "_id": "5c0b780f9bc83c3584f9b712",
+                "detailName": "Air filter",
+                "note": "",
+                "picture": ""
+            }
+        ],
+        "_id": "5c0b780f9bc83c3584f9b711",
+        "unitName": "Engine"
+    },
+    {
+        "details": [],
+        "_id": "5c0b780f9bc83c3584f9b710",
+        "unitName": "Transmission"
+    }
+]
