@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Car = mongoose.model('Car');
 
-// Функция отправки сообщения
+// Функция отправки ответа
 const sendJsonResponse = function (res, status, content) {
     res.status(status);
     res.json(content);

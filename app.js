@@ -10,6 +10,7 @@ const app = express();
 // Ссылки на роуты
 const indexRouter = require('./routes/index');
 const catalogs = require('./routes/catalogs');
+const addCar = require('./routes/addcar');
 
 // Номер порта
 const port = 3000;
@@ -26,8 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Роуты
-app.use('/catalogs', catalogs);
 app.use('/', indexRouter);
+app.use('/catalogs', catalogs);
+app.use('/add', addCar);
 
 // Запуск сервера
 app.listen(port, () => {
