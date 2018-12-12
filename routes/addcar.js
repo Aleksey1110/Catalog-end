@@ -11,5 +11,11 @@ router.post('/addCar', ctrlAdd.createMark);
 router.post('/addCar/:carid', ctrlAdd.createModel);
 // Добавить модификацию
 router.post('/addCar/:carid/:modelid', ctrlAdd.createMod);
+// Добавить агрегат
+router.post('/addCar/:carid/:modelid/:unitid', ctrlAdd.createUnit);
+// Добавить деталь
+router.post('/addCar/:carid/:modelid/:unitid/:detailid', ctrlAdd.createDetail);
+// Добавить составляющие детали
+router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid', ctrlAdd.createItem);
 
 module.exports = router;

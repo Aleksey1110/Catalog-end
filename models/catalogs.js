@@ -8,9 +8,9 @@ const analogueSchema = new mongoose.Schema({
 
 const itemsSchema = new mongoose.Schema({
     originalNumber: [String],
-    analogueNumber: [analogueSchema],
     note: String,
-    picture: String
+    picture: String, 
+    analogueNumber: [analogueSchema]
 });
 
 const detailSchema = new mongoose.Schema({

@@ -37,7 +37,7 @@ const doAddModel = function (req, res, car) {
         let mark = car.models[car.models.length - 1];
         sendJsonResponse(res, 200, mark);
     });
-}
+};
 
 // Добавить модель
 module.exports.createModel = function (req, res) {
@@ -61,12 +61,13 @@ module.exports.createModel = function (req, res) {
 };
 
 //Функция добавления и сохранения для модификации
-const doAddModification = function (req, res, modifications, car) {
-    if (!modifications) {
+const doAddModification = function (req, res, car) {
+    if (!car) {
         sendJsonResponse(res, 404, {
             "message": "Car not found"
         });
     }
+    let modifications = car.models.id(req.params.modelid);
     modifications.modifications.push({
         modificationName: req.body.modificationName
     });
@@ -77,7 +78,7 @@ const doAddModification = function (req, res, modifications, car) {
         let modification = modifications.modifications[modifications.modifications.length - 1];
         sendJsonResponse(res, 200, modification);
     });
-}
+};
 
 // Добавить модификацию
 module.exports.createMod = function (req, res) {
@@ -90,8 +91,140 @@ module.exports.createMod = function (req, res) {
                     if (err) {
                         sendJsonResponse(res, 404, err);
                     }
-                    let modifications = car.models.id(req.params.modelid);
-                    doAddModification(req, res, modifications, car);
+                    doAddModification(req, res, car);
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, car required"
+        });
+    }
+};
+
+//Функция добавления и сохранения для агрегата
+const doAddUnit = function (req, res, car) {
+    if (!car) {
+        sendJsonResponse(res, 404, {
+            "message": "Car not found"
+        });
+    }
+    let modifications = car.models.id(req.params.modelid);
+    let modification = modifications.modifications.id(req.params.unitid);
+    modification.parts.push({
+        unitName: req.body.unitName
+    });
+    car.save(function (err, car) {
+        if (err) {
+            sendJsonResponse(res, 404, err);
+        }
+        let unit = modification.parts[modification.parts.length - 1];
+        sendJsonResponse(res, 200, unit);
+    });
+};
+
+// Добавить агрегат
+module.exports.createUnit = function (req, res) {
+    let carid = req.params.carid;
+    if (carid) {
+        Car
+            .findById(carid)
+            .exec(
+                function (err, car) {
+                    if (err) {
+                        sendJsonResponse(res, 404, err);
+                    }
+                    doAddUnit(req, res, car);
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, car required"
+        });
+    }
+};
+
+//Функция добавления и сохранения для детали
+const doAddDetail = function (req, res, car) {
+    if (!car) {
+        sendJsonResponse(res, 404, {
+            "message": "Car not found"
+        });
+    }
+    let modifications = car.models.id(req.params.modelid);
+    let modification = modifications.modifications.id(req.params.unitid);
+    let details = modification.parts.id(req.params.detailid);
+    details.details.push({
+        detailName: req.body.detailName
+    });
+    car.save(function (err, car) {
+        if (err) {
+            sendJsonResponse(res, 404, err);
+        }
+        let detail = details.details[details.details.length - 1];
+        sendJsonResponse(res, 200, detail);
+    });
+};
+
+// Добавить деталь
+module.exports.createDetail = function (req, res) {
+    let carid = req.params.carid;
+    if (carid) {
+        Car
+            .findById(carid)
+            .exec(
+                function (err, car) {
+                    if (err) {
+                        sendJsonResponse(res, 404, err);
+                    }
+                    doAddDetail(req, res, car);
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, car required"
+        });
+    }
+};
+//Функция добавления и сохранения для составляющих детали
+const doAddItem = function (req, res, car) {
+    if (!car) {
+        sendJsonResponse(res, 404, {
+            "message": "Car not found"
+        });
+    }
+    let modifications = car.models.id(req.params.modelid);
+    let modification = modifications.modifications.id(req.params.unitid);
+    let details = modification.parts.id(req.params.detailid);
+    let items = details.details.id(req.params.itemid);
+    items.detailItems.push({
+        originalNumber: req.body.originalNumber.split(','),        
+        note: req.body.note,
+        picture: req.body.picture,
+        analogueNumber: req.body.analogueNumber
+    });
+    car.save(function (err, car) {
+        if (err) {
+            sendJsonResponse(res, 404, err);
+        } else {
+            let item = items.detailItems[items.detailItems.length - 1];
+            sendJsonResponse(res, 200, item);
+        }
+
+    });
+};
+
+// Добавить составляющие детали
+module.exports.createItem = function (req, res) {
+    let carid = req.params.carid;
+    if (carid) {
+        Car
+            .findById(carid)
+            .exec(
+                function (err, car) {
+                    if (err) {
+                        sendJsonResponse(res, 404, err);
+                    }
+                    doAddItem(req, res, car);
                 }
             );
     } else {
