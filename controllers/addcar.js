@@ -185,6 +185,7 @@ module.exports.createDetail = function (req, res) {
         });
     }
 };
+
 //Функция добавления и сохранения для составляющих детали
 const doAddItem = function (req, res, car) {
     if (!car) {
@@ -199,8 +200,7 @@ const doAddItem = function (req, res, car) {
     items.detailItems.push({
         originalNumber: req.body.originalNumber.split(','),        
         note: req.body.note,
-        picture: req.body.picture,
-        analogueNumber: req.body.analogueNumber
+        picture: req.body.picture
     });
     car.save(function (err, car) {
         if (err) {
@@ -225,6 +225,54 @@ module.exports.createItem = function (req, res) {
                         sendJsonResponse(res, 404, err);
                     }
                     doAddItem(req, res, car);
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, car required"
+        });
+    }
+};
+
+//Функция добавления и сохранения для аналога
+const doAddAnalogue = function (req, res, car) {
+    if (!car) {
+        sendJsonResponse(res, 404, {
+            "message": "Car not found"
+        });
+    }
+    let modifications = car.models.id(req.params.modelid);
+    let modification = modifications.modifications.id(req.params.unitid);
+    let details = modification.parts.id(req.params.detailid);
+    let items = details.details.id(req.params.itemid);
+    let analogues = items.detailItems.id(req.params.anid);
+    analogues.analogueNumber.push({
+        analogueName: req.body.analogueName,        
+        analogueNum: req.body.analogueNum
+    });
+    car.save(function (err, car) {
+        if (err) {
+            sendJsonResponse(res, 404, err);
+        } else {
+            let analogue = analogues.analogueNumber[analogues.analogueNumber.length - 1];
+            sendJsonResponse(res, 200, analogue);
+        }
+
+    });
+};
+
+// Добавить аналог
+module.exports.createAnalogue = function (req, res) {
+    let carid = req.params.carid;
+    if (carid) {
+        Car
+            .findById(carid)
+            .exec(
+                function (err, car) {
+                    if (err) {
+                        sendJsonResponse(res, 404, err);
+                    }
+                    doAddAnalogue(req, res, car);
                 }
             );
     } else {

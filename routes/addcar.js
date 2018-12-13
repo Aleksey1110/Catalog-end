@@ -17,5 +17,7 @@ router.post('/addCar/:carid/:modelid/:unitid', ctrlAdd.createUnit);
 router.post('/addCar/:carid/:modelid/:unitid/:detailid', ctrlAdd.createDetail);
 // Добавить составляющие детали
 router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid', ctrlAdd.createItem);
+// Добавить аналог
+router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid/:anid', ctrlAdd.createAnalogue);
 
 module.exports = router;
