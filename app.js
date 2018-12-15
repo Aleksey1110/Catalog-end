@@ -11,6 +11,7 @@ const app = express();
 const indexRouter = require('./routes/index');
 const catalogs = require('./routes/catalogs');
 const addCar = require('./routes/addcar');
+const editCar = require('./routes/editcar');
 
 // Номер порта
 const port = 3000;
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/catalogs', catalogs);
 app.use('/add', addCar);
+app.use('/edit', editCar);
 
 // Запуск сервера
 app.listen(port, () => {

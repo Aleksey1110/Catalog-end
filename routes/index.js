@@ -18,5 +18,6 @@ router.get('/api/:carid/:modelid/:modifid', ctrlDetails.partsList);
 router.get('/api/:carid/:modelid/:modifid/:unitid', ctrlDetails.detailItems);
 // Получить составляющие детали машины
 router.get('/api/:carid/:modelid/:modifid/:unitid/:itemid', ctrlDetails.itemList);
+// Получить аналоги
 
 module.exports = router;
