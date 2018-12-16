@@ -182,3 +182,38 @@ module.exports.itemList = function (req, res) {
     }
 
 }
+
+// Получить список составляющих детали 
+module.exports.analogueList = function (req, res) {
+    if (req.params && req.params.carid && req.params.modelid && req.params.modifid && req.params.unitid && req.params.itemid && req.params.anid) {
+        Car
+            .findById(req.params.carid)
+            .select('models')
+            .exec(
+                function (err, car) {
+                    if (!car) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Car not found"
+                        });
+                        return;
+                    } else if (err) {
+                        sendJsonResponse(res, 404, err);
+                        return;
+                    } else {
+                        let modelModifications = car.models.id(req.params.modelid);
+                        let modifications = modelModifications.modifications.id(req.params.modifid);
+                        let details = modifications.parts.id(req.params.unitid);
+                        let items = details.details.id(req.params.itemid);
+                        let item = items.detailItems.id(req.params.anid);
+                        let analogue = item.analogueNumber;
+                        sendJsonResponse(res, 200, analogue);
+                    }
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, carid, modelid, modifid, unitid, itemid, anid are required"
+        });
+    }
+
+}
