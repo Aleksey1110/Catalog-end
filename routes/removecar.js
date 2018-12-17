@@ -8,15 +8,15 @@ const ctrlRemove = require('../controllers/removecar');
 router.delete('/removecar/:carid', ctrlRemove.removeMark);
 // Удалить модель
 router.delete('/removecar/:carid/:modelid', ctrlRemove.removeModel);
-// // Редактировать название модификации
-// router.put('/editcar/:carid/:modelid/:modifid', ctrlEdit.editModification);
-// // Редактировать название агрегата
-// router.put('/editcar/:carid/:modelid/:modifid/:unitid', ctrlEdit.editUnit);
-// // Редактировать название детали
-// router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid', ctrlEdit.editDetail);
-// // Редактировать составляющие детали
-// router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', ctrlEdit.editItem);
-// // Редактировать аналог
-// router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', ctrlEdit.editAnalogue);
+// Удалить модификацию
+router.delete('/removecar/:carid/:modelid/:modifid', ctrlRemove.removeModification);
+// Удалить агрегат
+router.delete('/removecar/:carid/:modelid/:modifid/:unitid', ctrlRemove.removeUnit);
+// Удалить деталь
+router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid', ctrlRemove.removeDetail);
+// Удалить составляющие детали
+router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', ctrlRemove.removeItem);
+// Удалить аналог
+router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', ctrlRemove.removeAnalogue);
 
 module.exports = router;

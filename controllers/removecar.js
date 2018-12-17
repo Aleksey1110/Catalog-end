@@ -8,14 +8,14 @@ const sendJsonResponse = function (res, status, content) {
 };
 
 // Удалить марку
-module.exports.removeMark = function(req, res) {
+module.exports.removeMark = function (req, res) {
     let carid = req.params.carid;
     console.log(carid);
     if (carid) {
         Car
             .findByIdAndRemove(carid)
             .exec(
-                function(err, car) {
+                function (err, car) {
                     if (err) {
                         sendJsonResponse(res, 404, err);
                         return;
@@ -31,7 +31,7 @@ module.exports.removeMark = function(req, res) {
 };
 
 // Удалить модель
-module.exports.removeModel = function(req, res) {
+module.exports.removeModel = function (req, res) {
     if (!req.params.carid || !req.params.modelid) {
         sendJsonResponse(res, 404, {
             "message": "Not found"
@@ -41,7 +41,7 @@ module.exports.removeModel = function(req, res) {
     Car
         .findById(req.params.carid)
         .exec(
-            function(err, car) {
+            function (err, car) {
                 if (!car) {
                     sendJsonResponse(res, 404, {
                         "message": "car not found"
@@ -56,13 +56,285 @@ module.exports.removeModel = function(req, res) {
                     });
                 } else {
                     car.models.id(req.params.modelid).remove();
-                    car.save(function(err) {
+                    car.save(function (err) {
                         if (err) {
                             sendJsonResponse(res, 404, err);
                         } else {
                             sendJsonResponse(res, 204, null);
                         }
                     });
+                }
+            }
+        );
+};
+
+// Удалить модификацию
+module.exports.removeModification = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found"
+        });
+        return;
+    }
+    Car
+        .findById(req.params.carid)
+        .exec(
+            function (err, car) {
+                if (!car) {
+                    sendJsonResponse(res, 404, {
+                        "message": "car not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                }
+                if (!car.models.id(req.params.modelid)) {
+                    sendJsonResponse(res, 404, {
+                        "message": "modelid not found"
+                    });
+                } else {
+                    let model = car.models.id(req.params.modelid);
+                    model.modifications.id(req.params.modifid).remove();
+                    car.save(function (err) {
+                        if (err) {
+                            sendJsonResponse(res, 404, err);
+                        } else {
+                            sendJsonResponse(res, 204, null);
+                        }
+                    });
+                }
+            }
+        );
+};
+
+// Удалить агрегат
+module.exports.removeUnit = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found"
+        });
+        return;
+    }
+    Car
+        .findById(req.params.carid)
+        .exec(
+            function (err, car) {
+                if (!car) {
+                    sendJsonResponse(res, 404, {
+                        "message": "car not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                }
+                if (!car.models.id(req.params.modelid)) {
+                    sendJsonResponse(res, 404, {
+                        "message": "modelid not found"
+                    });
+                } else {
+                    let model = car.models.id(req.params.modelid);
+                    let modification = model.modifications.id(req.params.modifid);
+                    if (!modification) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Modification not found"
+                        });
+                    } else {
+                        modification.parts.id(req.params.unitid).remove();
+                        car.save(function (err) {
+                            if (err) {
+                                sendJsonResponse(res, 404, err);
+                            } else {
+                                sendJsonResponse(res, 204, null);
+                            }
+                        });
+                    }
+
+                }
+            }
+        );
+};
+
+// Удалить деталь
+module.exports.removeDetail = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid || !req.params.detailid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found"
+        });
+        return;
+    }
+    Car
+        .findById(req.params.carid)
+        .exec(
+            function (err, car) {
+                if (!car) {
+                    sendJsonResponse(res, 404, {
+                        "message": "car not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                }
+                if (!car.models.id(req.params.modelid)) {
+                    sendJsonResponse(res, 404, {
+                        "message": "modelid not found"
+                    });
+                } else {
+                    let model = car.models.id(req.params.modelid);
+                    let modification = model.modifications.id(req.params.modifid);
+                    if (!modification) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Modification not found"
+                        });
+                    } else {
+                        let unit = modification.parts.id(req.params.unitid);
+                        if (!unit) {
+                            sendJsonResponse(res, 404, {
+                                "message": "Unit not found"
+                            });
+                        } else {
+                            unit.details.id(req.params.detailid).remove();
+                            car.save(function (err) {
+                                if (err) {
+                                    sendJsonResponse(res, 404, err);
+                                } else {
+                                    sendJsonResponse(res, 204, null);
+                                }
+                            });
+                        }
+
+                    }
+                }
+            }
+        );
+};
+
+// Удалить составляющие детали
+module.exports.removeItem = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid || !req.params.detailid || !req.params.itemid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found"
+        });
+        return;
+    }
+    Car
+        .findById(req.params.carid)
+        .exec(
+            function (err, car) {
+                if (!car) {
+                    sendJsonResponse(res, 404, {
+                        "message": "car not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                }
+                if (!car.models.id(req.params.modelid)) {
+                    sendJsonResponse(res, 404, {
+                        "message": "modelid not found"
+                    });
+                } else {
+                    let model = car.models.id(req.params.modelid);
+                    let modification = model.modifications.id(req.params.modifid);
+                    if (!modification) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Modification not found"
+                        });
+                    } else {
+                        let unit = modification.parts.id(req.params.unitid);
+                        if (!unit) {
+                            sendJsonResponse(res, 404, {
+                                "message": "Unit not found"
+                            });
+                        } else {
+                            let detail = unit.details.id(req.params.detailid);
+                            if (!detail) {
+                                sendJsonResponse(res, 404, {
+                                    "message": "Detail not found"
+                                });
+                            } else {
+                                detail.detailItems.id(req.params.itemid).remove();
+                                car.save(function (err) {
+                                    if (err) {
+                                        sendJsonResponse(res, 404, err);
+                                    } else {
+                                        sendJsonResponse(res, 204, null);
+                                    }
+                                });
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        );
+};
+
+// Удалить аналог
+module.exports.removeAnalogue = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid || !req.params.detailid || !req.params.itemid || !req.params.anid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found"
+        });
+        return;
+    }
+    Car
+        .findById(req.params.carid)
+        .exec(
+            function (err, car) {
+                if (!car) {
+                    sendJsonResponse(res, 404, {
+                        "message": "car not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                }
+                if (!car.models.id(req.params.modelid)) {
+                    sendJsonResponse(res, 404, {
+                        "message": "modelid not found"
+                    });
+                } else {
+                    let model = car.models.id(req.params.modelid);
+                    let modification = model.modifications.id(req.params.modifid);
+                    if (!modification) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Modification not found"
+                        });
+                    } else {
+                        let unit = modification.parts.id(req.params.unitid);
+                        if (!unit) {
+                            sendJsonResponse(res, 404, {
+                                "message": "Unit not found"
+                            });
+                        } else {
+                            let detail = unit.details.id(req.params.detailid);
+                            if (!detail) {
+                                sendJsonResponse(res, 404, {
+                                    "message": "Detail not found"
+                                });
+                            } else {
+                                let item = detail.detailItems.id(req.params.itemid);
+                                if (!item) {
+                                    sendJsonResponse(res, 404, {
+                                        "message": "Item not found"
+                                    });
+                                } else {
+                                    item.analogueNumber.id(req.params.anid).remove();
+                                    car.save(function (err) {
+                                        if (err) {
+                                            sendJsonResponse(res, 404, err);
+                                        } else {
+                                            sendJsonResponse(res, 204, null);
+                                        }
+                                    });
+                                }
+
+                            }
+
+                        }
+
+                    }
                 }
             }
         );
