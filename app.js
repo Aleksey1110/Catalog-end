@@ -9,10 +9,10 @@ const app = express();
 
 // Ссылки на роуты
 const indexRouter = require('./routes/index');
-const catalogs = require('./routes/catalogs');
 const addCar = require('./routes/addcar');
 const editCar = require('./routes/editcar');
 const removeCar = require('./routes/removecar');
+const catalogs = require('./routes/picture-catalog/main');
 
 // Номер порта
 const port = 3000;
@@ -30,10 +30,11 @@ app.use(cookieParser());
 
 // Роуты
 app.use('/', indexRouter);
-app.use('/catalogs', catalogs);
 app.use('/add', addCar);
 app.use('/edit', editCar);
 app.use('/remove', removeCar);
+app.use('/catalogs', catalogs);
+
 
 // Запуск сервера
 app.listen(port, () => {

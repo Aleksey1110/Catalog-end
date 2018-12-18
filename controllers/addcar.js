@@ -15,7 +15,6 @@ module.exports.createMark = function (req, res) {
         if (err) {
             sendJsonResponse(res, 404, err);
         }
-        console.log(mark);
         sendJsonResponse(res, 200, mark);
     });
 };

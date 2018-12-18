@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const Car = require('../models/catalogs');
 
 // Папка контроллера
 const ctrlAdd = require('../controllers/addcar');
