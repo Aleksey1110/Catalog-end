@@ -1,152 +1,33 @@
 {
-    {
-        "markName": "Daewooo",
-        "models": [
-            {
-                "modelName": "Nexia",
-                "modifications": [
-                    {
-                        "modificationName": "1.5 8V",
-                        "parts": [
-                            {
-                                "unitName": "Engine",
-                                "details": [
-                                    {
-                                        "detailName": "Oil filter",
-                                        "detailItems": {
-                                            "originalNumber": [
-                                                "94797406",
-                                                "96395221",
-                                                "96458873"
-                                            ],
-                                            "analogueNumber": [
-                                                {
-                                                    "analogueName": "Filtron",
-                                                    "analogueNum": "OP570"
-                                                },
-                                                {
-                                                    "analogueName": "Mann",
-                                                    "analogueNum": "W71222"
-                                                }
-                                            ],
-                                            "note": "",
-                                            "picture": ""
+    "markName": "test",
+    "models": [
+        {
+            "modelsName": "test",
+            "modifications": [
+                {
+                    "modificationName": "test",
+                    "units": [
+                        {
+                            "unitName": "test",
+                            "details": [
+                                {
+                                    "detailName": "ttestest",
+                                    "detailImage": "test",
+                                    "detailItems": [
+                                        {
+                                            "itemNumber": "123",
+                                            "itemName": "test",
+                                            "itemArticle": "test",
+                                            "itemNote": "test",
+                                            "itemImage": "test"
                                         }
-                                    },
-                                    {
-                                        "detailName": "Air filter",
-                                        "detailItems": {
-                                            "originalNumber": "92060868",
-                                            "analogueNumber": [
-                                                {
-                                                    "analogueName": "Filtron",
-                                                    "analogueNum": "AP082"
-                                                },
-                                                {
-                                                    "analogueName": "Mann",
-                                                    "analogueNum": "C2598"
-                                                }
-                                            ],
-                                            "note": "",
-                                            "picture": ""
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "unitName": "Transmission",
-                                "details": []
-                            }
-                        ]
-                    },
-                    {
-                        "modificationName": "1.5 16V",
-                        "parts": []
-                    },
-                    {
-                        "modificationName": "1.6",
-                        "parts": []
-                    }
-                ]
-            },
-            {
-                "modelName": "Matiz",
-                "modifications": []
-            }
-        ]
-    },
-    {
-        "markName": "Hyundai",
-        "markName": "Hyundai",
-        "models": [
-            {
-                "modelsName": "Accent",
-                "modifications": [
-                    {
-                        "modificationName": "1.5 12V",
-                        "parts": [
-                            {
-                                "unitName": "Engine",
-                                "details": [
-                                    {
-                                        "detailName": "Oil filter",
-                                        "detailItems": {
-                                            "originalNumber": [
-                                                "2630035501",
-                                                "2630035502",
-                                                "2630035503",
-                                                "2630035504"
-                                            ],
-                                            "analogueNumber": [
-                                                {
-                                                    "analogueName": "Filtron",
-                                                    "analogueNum": "OP617"
-                                                },
-                                                {
-                                                    "analogueName": "Mann",
-                                                    "analogueNum": "W81180"
-                                                }
-                                            ],
-                                            "note": "",
-                                            "picture": ""
-                                        }
-                                    },
-                                    {
-                                        "detailName": "Air filter",
-                                        "detailItems": {
-                                            "originalNumber": "2811322600",
-                                            "analogueNumber": [
-                                                {
-                                                    "analogueName": "Filtron",
-                                                    "analogueNum": "AP114"
-                                                },
-                                                {
-                                                    "analogueName": "Mann",
-                                                    "analogueNum": "C2562"
-                                                }
-                                            ],
-                                            "note": "",
-                                            "picture": ""
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "unitName": "Transmission",
-                                "details": []
-                            }
-                        ]
-                    },
-                    {
-                        "modificationName": "1.5 16V",
-                        "parts": []
-                    }
-                ]
-            },
-            {
-                "modelsName": "Sonata",
-                "modifications": []
-            }
-        ]
-    }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

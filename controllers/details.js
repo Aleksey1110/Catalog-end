@@ -146,8 +146,7 @@ module.exports.detailItems = function (req, res) {
             "message": "Not found, carid, modelid, modifid, unitid are required"
         });
     }
-
-}
+};
 
 // Получить список составляющих детали 
 module.exports.itemList = function (req, res) {
@@ -180,8 +179,7 @@ module.exports.itemList = function (req, res) {
             "message": "Not found, carid, modelid, modifid, unitid, itemid are required"
         });
     }
-
-}
+};
 
 // Получить список составляющих детали 
 module.exports.analogueList = function (req, res) {
@@ -215,5 +213,4 @@ module.exports.analogueList = function (req, res) {
             "message": "Not found, carid, modelid, modifid, unitid, itemid, anid are required"
         });
     }
-
-}
+};
