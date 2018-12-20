@@ -1,25 +1,43 @@
 {
-    "markName": "test",
+    "markName": "test1",
     "models": [
         {
-            "modelsName": "test",
+            "modelsName": "test1",
             "modifications": [
                 {
-                    "modificationName": "test",
+                    "modificationName": "test1",
                     "units": [
                         {
-                            "unitName": "test",
+                            "unitName": "test1",
                             "details": [
                                 {
-                                    "detailName": "ttestest",
-                                    "detailImage": "test",
+                                    "detailName": "test1",
+                                    "detailImage": "assets/images/img-home/oilFilter.jpg",
                                     "detailItems": [
                                         {
                                             "itemNumber": "123",
                                             "itemName": "test",
-                                            "itemArticle": "test",
+                                            "itemArticle": ["test", "test"],
                                             "itemNote": "test",
-                                            "itemImage": "test"
+                                            "itemImage": "assets/images/img-home/oilFilter.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "unitName": "test2",
+                            "details": [
+                                {
+                                    "detailName": "test2",
+                                    "detailImage": "assets/images/img-home/oilFilter.jpg",
+                                    "detailItems": [
+                                        {
+                                            "itemNumber": "123",
+                                            "itemName": "test",
+                                            "itemArticle": ["test", "test"],
+                                            "itemNote": "test",
+                                            "itemImage": "assets/images/img-home/oilFilter.jpg"
                                         }
                                     ]
                                 }
