@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Папка контроллера
-const ctrlEdit = require('../controllers/editcar');
+const ctrlEdit = require('../../controllers/picture-catalog/editcar');
 
 // Редактировать название марки
 router.put('/editcar/:carid', ctrlEdit.editMark);
@@ -12,11 +12,9 @@ router.put('/editcar/:carid/:modelid', ctrlEdit.editModel);
 router.put('/editcar/:carid/:modelid/:modifid', ctrlEdit.editModification);
 // Редактировать название агрегата
 router.put('/editcar/:carid/:modelid/:modifid/:unitid', ctrlEdit.editUnit);
-// Редактировать название детали
+// Редактировать раздел
 router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid', ctrlEdit.editDetail);
-// Редактировать составляющие детали
+// Редактировать составляющие раздела
 router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', ctrlEdit.editItem);
-// Редактировать аналог
-router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', ctrlEdit.editAnalogue);
 
 module.exports = router;

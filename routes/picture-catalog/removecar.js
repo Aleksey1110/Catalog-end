@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlRemove = require('../controllers/removecar');
+const ctrlRemove = require('../../controllers/picture-catalog/removecar');
 
 // Удалить марку
 router.delete('/removecar/:carid', ctrlRemove.removeMark);
@@ -11,11 +11,9 @@ router.delete('/removecar/:carid/:modelid', ctrlRemove.removeModel);
 router.delete('/removecar/:carid/:modelid/:modifid', ctrlRemove.removeModification);
 // Удалить агрегат
 router.delete('/removecar/:carid/:modelid/:modifid/:unitid', ctrlRemove.removeUnit);
-// Удалить деталь
+// Удалить раздел
 router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid', ctrlRemove.removeDetail);
-// Удалить составляющие детали
+// Удалить составляющие раздела
 router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', ctrlRemove.removeItem);
-// Удалить аналог
-router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', ctrlRemove.removeAnalogue);
 
 module.exports = router;

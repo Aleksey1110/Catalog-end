@@ -13,6 +13,9 @@ const addCar = require('./routes/addcar');
 const editCar = require('./routes/editcar');
 const removeCar = require('./routes/removecar');
 const catalogs = require('./routes/picture-catalog/main');
+const imgaddcar = require('./routes/picture-catalog/addcar');
+const imgeditcar = require('./routes/picture-catalog/editcar');
+const imgremove = require('./routes/picture-catalog/removecar');
 
 // Номер порта
 const port = 3000;
@@ -34,6 +37,9 @@ app.use('/add', addCar);
 app.use('/edit', editCar);
 app.use('/remove', removeCar);
 app.use('/catalogs', catalogs);
+app.use('/imgadd', imgaddcar);
+app.use('/imgedit', imgeditcar);
+app.use('/imgremove', imgremove);
 
 
 // Запуск сервера
