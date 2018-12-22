@@ -198,10 +198,6 @@ const doAddItem = function (req, res, car) {
     let details = modification.units.id(req.params.detailid);
     let items = details.details.id(req.params.itemid);
     items.detailItems.push({
-        itemNumber: req.body.itemNumber,        
-        itemName: req.body.itemName,
-        itemArticle: req.body.itemArticle.split(','),
-        itemNote: req.body.itemNote,
         itemImage: req.body.itemImage
     });
     car.save(function (err, car) {
@@ -227,6 +223,56 @@ module.exports.createItem = function (req, res) {
                         sendJsonResponse(res, 404, err);
                     }
                     doAddItem(req, res, car);
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, car required"
+        });
+    }
+};
+
+//Функция добавления и сохранения для составляющих раздела
+const doAddDetailItem = function (req, res, car) {
+    if (!car) {
+        sendJsonResponse(res, 404, {
+            "message": "Car not found"
+        });
+    }
+    let modifications = car.models.id(req.params.modelid);
+    let modification = modifications.modifications.id(req.params.unitid);
+    let details = modification.units.id(req.params.detailid);
+    let items = details.details.id(req.params.itemid);
+    let detailItems = items.detailItems.id(req.params.anid);
+    detailItems.items.push({
+        itemNumber: req.body.itemNumber,        
+        itemName: req.body.itemName,
+        itemArticle: req.body.itemArticle.split(','),
+        itemNote: req.body.itemNote
+    });
+    car.save(function (err, car) {
+        if (err) {
+            sendJsonResponse(res, 404, err);
+        } else {
+            let item = detailItems.items[detailItems.items.length - 1];
+            sendJsonResponse(res, 200, item);
+        }
+
+    });
+};
+
+// Добавить составляющие раздела
+module.exports.createDetailItems = function (req, res) {
+    let carid = req.params.carid;
+    if (carid) {
+        Mark
+            .findById(carid)
+            .exec(
+                function (err, car) {
+                    if (err) {
+                        sendJsonResponse(res, 404, err);
+                    }
+                    doAddDetailItem(req, res, car);
                 }
             );
     } else {

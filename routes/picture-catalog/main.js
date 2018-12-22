@@ -12,11 +12,11 @@ router.get('/piccat/:carid', ctrlMark.markModelList);
 router.get('/piccat/:carid/:modelid', ctrlMark.modelModificationList);
 // Получить агрегаты машины
 router.get('/piccat/:carid/:modelid/:modifid', ctrlMark.partsList);
-// Получить детали машины
+// Получить разделы
 router.get('/piccat/:carid/:modelid/:modifid/:unitid', ctrlMark.detailItems);
-// Получить составляющие детали машины
+// Получить составляющие разделов
 router.get('/piccat/:carid/:modelid/:modifid/:unitid/:itemid', ctrlMark.itemList);
-// // Получить конкретную деталь
-// router.get('/piccat/:carid/:modelid/:modifid/:unitid/:itemid/:anid', ctrlMark.analogueList);
+// Получить список деталей
+router.get('/piccat/:carid/:modelid/:modifid/:unitid/:itemid/:anid', ctrlMark.analogueList);
 
 module.exports = router;

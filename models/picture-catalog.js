@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const config = require('../config/database');
 
-const itemSchema = new mongoose.Schema({
+const itemDetailSchema = new mongoose.Schema({
     itemNumber: Number,
     itemName: String,
     itemArticle: [String],
     itemNote: String,
-    itemImage: String
+});
+
+const itemSchema = new mongoose.Schema({  
+    itemImage: String,
+    items: [itemDetailSchema]
 }, {
     collection: 'catalogues'
 });

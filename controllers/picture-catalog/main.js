@@ -114,7 +114,7 @@ module.exports.partsList = function (req, res) {
     }
 };
 
-// Получить список всех деталей
+// Получить список разделов
 module.exports.detailItems = function (req, res) {
     if (req.params && req.params.carid && req.params.modelid && req.params.modifid && req.params.unitid) {
         Mark
@@ -146,7 +146,7 @@ module.exports.detailItems = function (req, res) {
     }
 };
 
-// Получить список составляющих детали 
+// Получить список составляющих разделов 
 module.exports.itemList = function (req, res) {
     if (req.params && req.params.carid && req.params.modelid && req.params.modifid && req.params.unitid && req.params.itemid) {
         Mark
@@ -179,36 +179,37 @@ module.exports.itemList = function (req, res) {
     }
 };
 
-// // Получить конкретную деталь
-// module.exports.analogueList = function (req, res) {
-//     if (req.params && req.params.carid && req.params.modelid && req.params.modifid && req.params.unitid && req.params.itemid && req.params.anid) {
-//         Mark
-//             .findById(req.params.carid)
-//             .select('models')
-//             .exec(
-//                 function (err, car) {
-//                     if (!car) {
-//                         sendJsonResponse(res, 404, {
-//                             "message": "Car not found"
-//                         });
-//                         return;
-//                     } else if (err) {
-//                         sendJsonResponse(res, 404, err);
-//                         return;
-//                     } else {
-//                         let modelModifications = car.models.id(req.params.modelid);
-//                         let modifications = modelModifications.modifications.id(req.params.modifid);
-//                         let details = modifications.parts.id(req.params.unitid);
-//                         let items = details.units.id(req.params.itemid);
-//                         let item = items.detailItems.id(req.params.anid);
-//                         let analogue = item.analogueNumber;
-//                         sendJsonResponse(res, 200, analogue);
-//                     }
-//                 }
-//             );
-//     } else {
-//         sendJsonResponse(res, 404, {
-//             "message": "Not found, carid, modelid, modifid, unitid, itemid, anid are required"
-//         });
-//     }
-// };
+// Получить список составляющих разделов 
+module.exports.analogueList = function (req, res) {
+    if (req.params && req.params.carid && req.params.modelid && req.params.modifid && req.params.unitid && req.params.itemid && req.params.anid) {
+        Mark
+            .findById(req.params.carid)
+            .select('models')
+            .exec(
+                function (err, car) {
+                    if (!car) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Car not found"
+                        });
+                        return;
+                    } else if (err) {
+                        sendJsonResponse(res, 404, err);
+                        return;
+                    } else {
+                        let modelModifications = car.models.id(req.params.modelid);
+                        let modifications = modelModifications.modifications.id(req.params.modifid);
+                        let details = modifications.units.id(req.params.unitid);
+                        let items = details.details.id(req.params.itemid);
+                        let item = items.detailItems.id(req.params.anid);
+                        let detailItems = item.items;
+                        sendJsonResponse(res, 200, detailItems);
+                    }
+                }
+            );
+    } else {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, carid, modelid, modifid, unitid, itemid are required"
+        });
+    }
+};
+

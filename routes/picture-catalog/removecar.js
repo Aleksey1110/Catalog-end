@@ -15,5 +15,8 @@ router.delete('/removecar/:carid/:modelid/:modifid/:unitid', ctrlRemove.removeUn
 router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid', ctrlRemove.removeDetail);
 // Удалить составляющие раздела
 router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', ctrlRemove.removeItem);
+// Удалить детали раздела
+router.delete('/removecar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', ctrlRemove.removeDetailItem);
+
 
 module.exports = router;

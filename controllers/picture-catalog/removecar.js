@@ -10,7 +10,6 @@ const sendJsonResponse = function (res, status, content) {
 // Удалить марку
 module.exports.removeMark = function (req, res) {
     let carid = req.params.carid;
-    console.log(carid);
     if (carid) {
         Mark
             .findByIdAndRemove(carid)
@@ -269,3 +268,74 @@ module.exports.removeItem = function (req, res) {
             }
         );
 };
+
+// Удалить детали раздела
+module.exports.removeDetailItem = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid || !req.params.detailid || !req.params.itemid || !req.params.anid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found"
+        });
+        return;
+    }
+    Mark
+        .findById(req.params.carid)
+        .exec(
+            function (err, car) {
+                if (!car) {
+                    sendJsonResponse(res, 404, {
+                        "message": "car not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                }
+                if (!car.models.id(req.params.modelid)) {
+                    sendJsonResponse(res, 404, {
+                        "message": "modelid not found"
+                    });
+                } else {
+                    let model = car.models.id(req.params.modelid);
+                    let modification = model.modifications.id(req.params.modifid);
+                    if (!modification) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Modification not found"
+                        });
+                    } else {
+                        let unit = modification.units.id(req.params.unitid);
+                        if (!unit) {
+                            sendJsonResponse(res, 404, {
+                                "message": "Unit not found"
+                            });
+                        } else {
+                            let detail = unit.details.id(req.params.detailid);
+                            if (!detail) {
+                                sendJsonResponse(res, 404, {
+                                    "message": "Detail not found"
+                                });
+                            } else {
+                                let detailItems = detail.detailItems.id(req.params.itemid);
+                                if (!detailItems) {
+                                    sendJsonResponse(res, 404, {
+                                        "message": "detailItems not found"
+                                    });
+                                } else {
+                                    detailItems.items.id(req.params.anid).remove();
+                                    car.save(function (err) {
+                                        if (err) {
+                                            sendJsonResponse(res, 404, err);
+                                        } else {
+                                            sendJsonResponse(res, 204, null);
+                                        }
+                                    });
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        );
+};
+

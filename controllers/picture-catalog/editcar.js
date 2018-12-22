@@ -296,10 +296,6 @@ module.exports.editItem = function (req, res) {
                                         "message": "Item not found"
                                     });
                                 } else {
-                                    item.itemNumber = req.body.itemNumber;
-                                    item.itemName = req.body.itemName;
-                                    item.itemArticle = req.body.itemArticle.split(',');
-                                    item.itemNote = req.body.itemNote;
                                     item.itemImage = req.body.itemImage;
                                     mark.save(function (err, mark) {
                                         if (err) {
@@ -308,6 +304,84 @@ module.exports.editItem = function (req, res) {
                                             sendJsonResponse(res, 200, item);
                                         }
                                     });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+};
+
+// Редактировать детали раздела
+module.exports.editDetailItem = function (req, res) {
+    if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid || !req.params.detailid || !req.params.itemid || !req.params.anid) {
+        sendJsonResponse(res, 404, {
+            "message": "Not found, carid and modelid are required"
+        });
+        return;
+    }
+    Mark
+        .findById(req.params.carid)
+        .exec(
+            function (err, mark) {
+                if (!mark) {
+                    sendJsonResponse(res, 404, {
+                        "message": "Mark not found"
+                    });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                    return;
+                }
+                let model = mark.models.id(req.params.modelid);
+                if (!model) {
+                    sendJsonResponse(res, 404, {
+                        "message": "Model not found"
+                    });
+                } else {
+                    let modification = model.modifications.id(req.params.modifid);
+                    if (!modification) {
+                        sendJsonResponse(res, 404, {
+                            "message": "Modification not found"
+                        });
+                    } else {
+                        let unit = modification.units.id(req.params.unitid);
+                        if (!unit) {
+                            sendJsonResponse(res, 404, {
+                                "message": "Unit not found"
+                            });
+                        } else {
+                            let detail = unit.details.id(req.params.detailid);
+                            if (!detail) {
+                                sendJsonResponse(res, 404, {
+                                    "message": "Detail not found"
+                                });
+                            } else {
+                                let item = detail.detailItems.id(req.params.itemid);
+                                if (!item) {
+                                    sendJsonResponse(res, 404, {
+                                        "message": "Item not found"
+                                    });
+                                } else {
+                                    let detailItems = item.items.id(req.params.anid);
+                                    if (!detailItems) {
+                                        sendJsonResponse(res, 404, {
+                                            "message": "detailItems not found"
+                                        });
+                                    } else {
+                                        detailItems.itemNumber = req.body.itemNumber;
+                                        detailItems.itemName = req.body.itemName;
+                                        detailItems.itemArticle = req.body.itemArticle.split(',');
+                                        detailItems.itemNote = req.body.itemNote;
+                                        mark.save(function (err, mark) {
+                                            if (err) {
+                                                sendJsonResponse(res, 404, err);
+                                            } else {
+                                                sendJsonResponse(res, 200, detailItems);
+                                            }
+                                        });
+                                    }
                                 }
                             }
                         }
