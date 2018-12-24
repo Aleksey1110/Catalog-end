@@ -147,7 +147,6 @@ module.exports.removeUnit = function (req, res) {
                             }
                         });
                     }
-
                 }
             }
         );
@@ -200,7 +199,6 @@ module.exports.removeDetail = function (req, res) {
                                 }
                             });
                         }
-
                     }
                 }
             }
@@ -260,9 +258,7 @@ module.exports.removeItem = function (req, res) {
                                     }
                                 });
                             }
-
                         }
-
                     }
                 }
             }
@@ -328,14 +324,10 @@ module.exports.removeDetailItem = function (req, res) {
                                         }
                                     });
                                 }
-
                             }
-
                         }
-
                     }
                 }
             }
         );
 };
-

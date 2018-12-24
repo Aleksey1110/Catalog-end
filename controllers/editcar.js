@@ -123,7 +123,6 @@ module.exports.editModification = function (req, res) {
                             }
                         });
                     }
-
                 }
             }
         );
@@ -177,9 +176,7 @@ module.exports.editUnit = function (req, res) {
                                 }
                             });
                         }
-
                     }
-
                 }
             }
         );
@@ -239,11 +236,8 @@ module.exports.editDetail = function (req, res) {
                                     }
                                 });
                             }
-
                         }
-
                     }
-
                 }
             }
         );
@@ -311,17 +305,14 @@ module.exports.editItem = function (req, res) {
                                         }
                                     });
                                 }
-
                             }
-
                         }
-
                     }
-
                 }
             }
         );
 };
+
 // Редактировать аналог
 module.exports.editAnalogue = function (req, res) {
     if (!req.params.carid || !req.params.modelid || !req.params.modifid || !req.params.unitid || !req.params.detailid || !req.params.itemid || !req.params.anid) {
@@ -389,15 +380,10 @@ module.exports.editAnalogue = function (req, res) {
                                             }
                                         });
                                     }
-
                                 }
-
                             }
-
                         }
-
                     }
-
                 }
             }
         );

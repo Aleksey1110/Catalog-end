@@ -208,7 +208,6 @@ const doAddItem = function (req, res, car) {
             let item = items.detailItems[items.detailItems.length - 1];
             sendJsonResponse(res, 200, item);
         }
-
     });
 };
 
@@ -256,7 +255,6 @@ const doAddAnalogue = function (req, res, car) {
             let analogue = analogues.analogueNumber[analogues.analogueNumber.length - 1];
             sendJsonResponse(res, 200, analogue);
         }
-
     });
 };
 

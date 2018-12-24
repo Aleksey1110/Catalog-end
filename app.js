@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
 const app = express();
 
 // Ссылки на роуты
@@ -40,7 +39,6 @@ app.use('/catalogs', catalogs);
 app.use('/imgadd', imgaddcar);
 app.use('/imgedit', imgeditcar);
 app.use('/imgremove', imgremove);
-
 
 // Запуск сервера
 app.listen(port, () => {

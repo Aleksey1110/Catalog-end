@@ -123,7 +123,6 @@ module.exports.editModification = function (req, res) {
                             }
                         });
                     }
-
                 }
             }
         );

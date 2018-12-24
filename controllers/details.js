@@ -24,7 +24,6 @@ module.exports.list = function (req, res) {
                 sendJsonResponse(res, 200, car);
             };
         });
-
 };
 
 // Получить список всех моделей 
@@ -113,7 +112,6 @@ module.exports.partsList = function (req, res) {
             "message": "Not found, carid, modelid, modifid are required"
         });
     }
-
 };
 
 // Получить список всех деталей

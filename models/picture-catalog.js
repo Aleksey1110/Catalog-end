@@ -6,6 +6,8 @@ const itemDetailSchema = new mongoose.Schema({
     itemName: String,
     itemArticle: [String],
     itemNote: String,
+}, {
+    collection: 'catalogues'
 });
 
 const itemSchema = new mongoose.Schema({  

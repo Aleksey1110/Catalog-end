@@ -257,7 +257,6 @@ const doAddDetailItem = function (req, res, car) {
             let item = detailItems.items[detailItems.items.length - 1];
             sendJsonResponse(res, 200, item);
         }
-
     });
 };
 
