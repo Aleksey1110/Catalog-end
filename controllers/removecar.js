@@ -10,7 +10,6 @@ const sendJsonResponse = function (res, status, content) {
 // Удалить марку
 module.exports.removeMark = function (req, res) {
     let carid = req.params.carid;
-    console.log(carid);
     if (carid) {
         Car
             .findByIdAndRemove(carid)
