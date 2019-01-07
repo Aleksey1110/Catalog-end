@@ -15,6 +15,8 @@ const catalogs = require('./routes/picture-catalog/main');
 const imgaddcar = require('./routes/picture-catalog/addcar');
 const imgeditcar = require('./routes/picture-catalog/editcar');
 const imgremove = require('./routes/picture-catalog/removecar');
+const adminRegister = require('./routes/admin/register');
+const adminLogin = require('./routes/admin/login');
 
 // Номер порта
 const port = 3000;
@@ -39,6 +41,8 @@ app.use('/catalogs', catalogs);
 app.use('/imgadd', imgaddcar);
 app.use('/imgedit', imgeditcar);
 app.use('/imgremove', imgremove);
+app.use('/register', adminRegister);
+app.use('/login', adminLogin);
 
 // Запуск сервера
 app.listen(port, () => {
