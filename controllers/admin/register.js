@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../../models/user');
+const jwt = require('jsonwebtoken');
 
 // Функция отправки ответа
 const sendJsonResponse = function (res, status, content) {
@@ -14,7 +15,11 @@ module.exports.createAdmin = function (req, res) {
         if (err) {
             sendJsonResponse(res, 404, err);
         } else {
-            sendJsonResponse(res, 200, registeredUser);
+            let payload = {
+                subject: registeredUser._id
+            };
+            let token = jwt.sign(payload, 'potapok');
+            res.status(200).send({token});
         }
     });
 };

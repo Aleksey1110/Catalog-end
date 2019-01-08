@@ -14,6 +14,7 @@
     "express": "*",
     "http-errors": "*",
     "jade": "*",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.12",
     "morgan": "*",
     "npm": "*",

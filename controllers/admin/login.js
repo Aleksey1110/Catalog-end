@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../../models/user');
+const jwt = require('jsonwebtoken');
 
 // Функция отправки ответа
 const sendJsonResponse = function (res, status, content) {
@@ -25,7 +26,11 @@ module.exports.loginAdmin = function (req, res) {
                     "message": "Invalid password"
                 });
             } else {
-                sendJsonResponse(res, 200, user);
+                let payload = {
+                    subject: user._id
+                };
+                let token = jwt.sign(payload, 'potapok');
+                res.status(200).send({token});
             }
         }
     });
