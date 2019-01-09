@@ -3,20 +3,21 @@ const router = express.Router();
 
 // Папка контроллера
 const ctrlEdit = require('../controllers/editcar');
+const token  = require('../controllers/admin/register');
 
 // Редактировать название марки
-router.put('/editcar/:carid', ctrlEdit.editMark);
+router.put('/editcar/:carid', token.verifyToken, ctrlEdit.editMark);
 // Редактировать название модели
-router.put('/editcar/:carid/:modelid', ctrlEdit.editModel);
+router.put('/editcar/:carid/:modelid', token.verifyToken, ctrlEdit.editModel);
 // Редактировать название модификации
-router.put('/editcar/:carid/:modelid/:modifid', ctrlEdit.editModification);
+router.put('/editcar/:carid/:modelid/:modifid', token.verifyToken, ctrlEdit.editModification);
 // Редактировать название агрегата
-router.put('/editcar/:carid/:modelid/:modifid/:unitid', ctrlEdit.editUnit);
+router.put('/editcar/:carid/:modelid/:modifid/:unitid', token.verifyToken, ctrlEdit.editUnit);
 // Редактировать название детали
-router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid', ctrlEdit.editDetail);
+router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid', token.verifyToken, ctrlEdit.editDetail);
 // Редактировать составляющие детали
-router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', ctrlEdit.editItem);
+router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid', token.verifyToken, ctrlEdit.editItem);
 // Редактировать аналог
-router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', ctrlEdit.editAnalogue);
+router.put('/editcar/:carid/:modelid/:modifid/:unitid/:detailid/:itemid/:anid', token.verifyToken, ctrlEdit.editAnalogue);
 
 module.exports = router;
