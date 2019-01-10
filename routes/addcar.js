@@ -1,23 +1,24 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
 // Папка контроллера
 const ctrlAdd = require('../controllers/addcar');
 const token  = require('../controllers/admin/register');
 
 // Добавить марку
-router.post('/addCar', token.verifyToken, ctrlAdd.createMark);
+router.post('/addCar', passport.authenticate('jwt', {session: false}), ctrlAdd.createMark);
 // Добавить модель
-router.post('/addCar/:carid', token.verifyToken, ctrlAdd.createModel);
+router.post('/addCar/:carid', passport.authenticate('jwt', {session: false}), ctrlAdd.createModel);
 // Добавить модификацию
-router.post('/addCar/:carid/:modelid', token.verifyToken, ctrlAdd.createMod);
+router.post('/addCar/:carid/:modelid', passport.authenticate('jwt', {session: false}), ctrlAdd.createMod);
 // Добавить агрегат
-router.post('/addCar/:carid/:modelid/:unitid', token.verifyToken, ctrlAdd.createUnit);
+router.post('/addCar/:carid/:modelid/:unitid', passport.authenticate('jwt', {session: false}), ctrlAdd.createUnit);
 // Добавить деталь
-router.post('/addCar/:carid/:modelid/:unitid/:detailid', token.verifyToken, ctrlAdd.createDetail);
+router.post('/addCar/:carid/:modelid/:unitid/:detailid', passport.authenticate('jwt', {session: false}), ctrlAdd.createDetail);
 // Добавить составляющие детали
-router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid', token.verifyToken, ctrlAdd.createItem);
+router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid', passport.authenticate('jwt', {session: false}), ctrlAdd.createItem);
 // Добавить аналог
-router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid/:anid', token.verifyToken, ctrlAdd.createAnalogue);
+router.post('/addCar/:carid/:modelid/:unitid/:detailid/:itemid/:anid', passport.authenticate('jwt', {session: false}), ctrlAdd.createAnalogue);
 
 module.exports = router;

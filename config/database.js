@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-const dbURI = {
-    database: 'mongodb://localhost:27017/carscats'
+module.exports.dbURI = {
+    database: 'mongodb://localhost:27017/carscats',
+    secret: 'potapok'
 };
 
-mongoose.connect(dbURI.database);
+mongoose.connect(this.dbURI.database);
 
 mongoose.connection.on('connected', () => {
-    console.log('Connected to database ' + dbURI.database);
+    console.log('Connected to database ' + this.dbURI.database);
 });
 
 mongoose.connection.on('Error', (err) => {

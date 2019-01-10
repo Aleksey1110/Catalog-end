@@ -9,16 +9,19 @@
   },
   "dependencies": {
     "cookie-parser": "*",
-    "cors": "^2.8.5",
+    "cors": "*",
     "debug": "*",
     "express": "*",
     "http-errors": "*",
-    "jade": "*",
-    "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.3.12",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
     "morgan": "*",
     "npm": "*",
-    "request": "*"
+    "request": "*",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*"
   },
   "author": "Posysoev, Satonin",
   "license": "ISC"

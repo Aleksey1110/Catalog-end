@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
+const config = require('../../config/database');
 
 // Функция отправки ответа
 const sendJsonResponse = function (res, status, content) {
@@ -9,29 +10,38 @@ const sendJsonResponse = function (res, status, content) {
 };
 
 module.exports.loginAdmin = function (req, res) {
-    let userData = req.body;
+    const username = req.body.email;
+    const password = req.body.password;
 
-    User.findOne({
-        email: userData.email
-    }, (err, user) => {
-        if (err) {
-            sendJsonResponse(res, 404, err);
+    User.getUserByUsername(username, (err, user) => {
+        if (err) throw err;
+        if (!user) {
+            sendJsonResponse(res, 404, {
+                "message": "User not found"
+            });
         } else {
-            if (!user) {
-                sendJsonResponse(res, 401, {
-                    "message": "Invalid email"
-                });
-            } else if (user.password !== userData.password) {
-                sendJsonResponse(res, 401, {
-                    "message": "Invalid password"
-                });
-            } else {
-                let payload = {
-                    subject: user._id
-                };
-                let token = jwt.sign(payload, 'potapok');
-                res.status(200).send({token});
-            }
+            User.comparePassword(password, user.password, (err, isMatch) => {
+                if (err) throw err;
+                if (isMatch) {
+                    const token = jwt.sign(user.toJSON(), config.dbURI.secret, {
+                        expiresIn: 604800
+                    });
+                    res.json({
+                        success: true,
+                        token: 'JWT ' + token,
+                        user: {
+                            id: user._id,
+                            email: user.email
+                        }
+                    });
+                } else {
+                    sendJsonResponse(res, 404, {
+                        "message": "Wrong password"
+                    });
+                }
+            });
         }
+
+
     });
 };
