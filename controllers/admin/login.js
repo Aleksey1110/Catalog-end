@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const config = require('../../config/database');
@@ -28,7 +27,7 @@ module.exports.loginAdmin = function (req, res) {
                     });
                     res.json({
                         success: true,
-                        token: 'JWT ' + token,
+                        token: token,
                         user: {
                             id: user._id,
                             email: user.email

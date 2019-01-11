@@ -4,7 +4,6 @@ const passport = require('passport');
 
 // Папка контроллера
 const ctrlAdd = require('../controllers/addcar');
-const token  = require('../controllers/admin/register');
 
 // Добавить марку
 router.post('/addCar', passport.authenticate('jwt', {session: false}), ctrlAdd.createMark);
