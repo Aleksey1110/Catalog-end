@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
     this.dbURI = 'mongodb://alex:i80186zx@ds137634.mlab.com:37634/carscats'
 };
 
-mongoose.connect('mongodb://alex:i80186zx@ds137634.mlab.com:37634/carscats', { useMongoClient:true });
+mongoose.connect('mongodb://alex:i80186zx@ds137634.mlab.com:37634/carscats', {useNewUrlParser: true});
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + this.dbURI.database);
