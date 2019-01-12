@@ -8,20 +8,21 @@
     "start": "node app"
   },
   "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
     "cookie-parser": "*",
     "cors": "*",
     "debug": "*",
+    "dotenv": "^6.2.0",
     "express": "*",
     "http-errors": "*",
     "jsonwebtoken": "*",
     "mongoose": "*",
     "morgan": "*",
     "npm": "*",
-    "request": "*",
-    "bcryptjs": "*",
-    "body-parser": "*",
     "passport": "*",
-    "passport-jwt": "*"
+    "passport-jwt": "*",
+    "request": "*"
   },
   "author": "Posysoev, Satonin",
   "license": "ISC"

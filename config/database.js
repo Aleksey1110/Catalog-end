@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 module.exports.dbURI = {
     database: 'mongodb://localhost:27017/carscats',
-    secret: 'potapok'
+    secret: process.env.JWT_SECRET
 };
 
 if (process.env.NODE_ENV === 'production') {
     this.dbURI = 'mongodb://alex:i80186zx@ds137634.mlab.com:37634/carscats'
 };
 
-mongoose.connect(this.dbURI.database);
+mongoose.connect(this.dbURI.database, { useNewUrlParser: true });
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + this.dbURI.database);
