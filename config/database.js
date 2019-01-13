@@ -1,18 +1,16 @@
 require('dotenv').config({ path: '../.env' });
 const mongoose = require('mongoose');
 
-const dbURI = {
+module.exports.dbURI = {
     database: 'mongodb://localhost:27017/carscats',
     secret: process.env.JWT_SECRET
 };
 
 if (process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://alex:i80186zx@ds137634.mlab.com:37634/carscats'
+    this.dbURI.database = 'mongodb://alex:i80186zx@ds137634.mlab.com:37634/carscats'
 };
 
-module.exports.dbURI;
-
-mongoose.connect(dbURI.database, {useNewUrlParser: true}, () => {console.log(dbURI.secret)});
+mongoose.connect(this.dbURI.database, {useNewUrlParser: true});
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + this.dbURI.database);
