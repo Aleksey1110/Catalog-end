@@ -106,7 +106,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvYXBwLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -234,7 +234,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\r\n    margin-bottom: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9jb21wb25lbnRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLG9CQUFvQjtDQUN2QiIsImZpbGUiOiJhcHAvY29tcG9uZW50cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2YmFyIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XHJcbn1cclxuIl19 */"
+module.exports = ".navbar {\r\n    margin-bottom: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxvQkFBb0I7Q0FDdkIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -293,7 +293,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvbW9kdWxlcy9jb3JlL2Fib3V0L2Fib3V0LmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvY29yZS9hYm91dC9hYm91dC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -399,7 +399,7 @@ var CoreModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvbW9kdWxlcy9jb3JlL3BhZ2Utbm90LWZvdW5kL3BhZ2Utbm90LWZvdW5kLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvY29yZS9wYWdlLW5vdC1mb3VuZC9wYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -410,7 +410,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>404</h1>\n<h2>Page not found</h2>"
+module.exports = "<h1>404</h1>\r\n<h2>Page not found</h2>"
 
 /***/ }),
 
@@ -455,7 +455,7 @@ var PageNotFoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".btn {\r\n    margin: 2px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9tb2R1bGVzL2NvcmUvc3RhcnQtcGFnZS9zdGFydC1wYWdlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0NBQ2YiLCJmaWxlIjoiYXBwL21vZHVsZXMvY29yZS9zdGFydC1wYWdlL3N0YXJ0LXBhZ2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5idG4ge1xyXG4gICAgbWFyZ2luOiAycHg7XHJcbn0iXX0= */"
+module.exports = ".btn {\r\n    margin: 2px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9jb3JlL3N0YXJ0LXBhZ2Uvc3RhcnQtcGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtDQUNmIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9jb3JlL3N0YXJ0LXBhZ2Uvc3RhcnQtcGFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ0biB7XHJcbiAgICBtYXJnaW46IDJweDtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -466,7 +466,7 @@ module.exports = ".btn {\r\n    margin: 2px;\r\n}\r\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Каталоги запчастей для автомобилей</h1>\n  <p>Добро пожаловать в каталоги запчастей для автомобилей производства Hyundai, Kia, Daewoo.</p>\n  <a class=\"btn btn-primary ml-1\" [routerLink]=\"['/home']\">Каталоги</a> <a class=\"btn btn-success\" [routerLink]=\"['/login']\">Login</a>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <h3>Lorem, ipsum dolor.</h3>\n    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel facilis optio aut nisi perspiciatis!</p>\n  </div>\n  <div class=\"col-md-4\">\n      <h3>Lorem, ipsum dolor.</h3>\n      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel facilis optio aut nisi perspiciatis!</p>\n    </div>\n    <div class=\"col-md-4\">\n        <h3>Lorem, ipsum dolor.</h3>\n        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel facilis optio aut nisi perspiciatis!</p>\n      </div>\n</div>"
+module.exports = "<div class=\"jumbotron text-center\">\r\n  <h1>Каталоги запчастей для автомобилей</h1>\r\n  <p>Добро пожаловать в каталоги запчастей для автомобилей производства Hyundai, Kia, Daewoo.</p>\r\n  <a class=\"btn btn-primary ml-1\" [routerLink]=\"['/home']\">Каталоги</a> <a class=\"btn btn-success\" [routerLink]=\"['/login']\">Login</a>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <h3>Lorem, ipsum dolor.</h3>\r\n    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel facilis optio aut nisi perspiciatis!</p>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n      <h3>Lorem, ipsum dolor.</h3>\r\n      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel facilis optio aut nisi perspiciatis!</p>\r\n    </div>\r\n    <div class=\"col-md-4\">\r\n        <h3>Lorem, ipsum dolor.</h3>\r\n        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores vel facilis optio aut nisi perspiciatis!</p>\r\n      </div>\r\n</div>"
 
 /***/ }),
 
@@ -511,7 +511,7 @@ var StartPageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".column-item {\r\n    width: 270px;\r\n    margin-top: 30px;\r\n}\r\n\r\n.analog-name {\r\n    margin-right: 10px;\r\n}\r\n\r\nimg {\r\n    width: 100%;\r\n}\r\n\r\np {\r\n    margin-bottom: 5px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9tb2R1bGVzL2hvbWUtcGFnZS9kZXRhaWxzLXBhZ2UvZGV0YWlscy1wYWdlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsaUJBQWlCO0NBQ3BCOztBQUVEO0lBQ0ksbUJBQW1CO0NBQ3RCOztBQUVEO0lBQ0ksWUFBWTtDQUNmOztBQUVEO0lBQ0ksbUJBQW1CO0NBQ3RCIiwiZmlsZSI6ImFwcC9tb2R1bGVzL2hvbWUtcGFnZS9kZXRhaWxzLXBhZ2UvZGV0YWlscy1wYWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29sdW1uLWl0ZW0ge1xyXG4gICAgd2lkdGg6IDI3MHB4O1xyXG4gICAgbWFyZ2luLXRvcDogMzBweDtcclxufVxyXG5cclxuLmFuYWxvZy1uYW1lIHtcclxuICAgIG1hcmdpbi1yaWdodDogMTBweDtcclxufVxyXG5cclxuaW1nIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG5wIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDVweDtcclxufSJdfQ== */"
+module.exports = ".column-item {\r\n    width: 270px;\r\n    margin-top: 30px;\r\n}\r\n\r\n.analog-name {\r\n    margin-right: 10px;\r\n}\r\n\r\nimg {\r\n    width: 100%;\r\n}\r\n\r\np {\r\n    margin-bottom: 5px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9ob21lLXBhZ2UvZGV0YWlscy1wYWdlL2RldGFpbHMtcGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksYUFBYTtJQUNiLGlCQUFpQjtDQUNwQjs7QUFFRDtJQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtJQUNJLFlBQVk7Q0FDZjs7QUFFRDtJQUNJLG1CQUFtQjtDQUN0QiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvaG9tZS1wYWdlL2RldGFpbHMtcGFnZS9kZXRhaWxzLXBhZ2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb2x1bW4taXRlbSB7XHJcbiAgICB3aWR0aDogMjcwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiAzMHB4O1xyXG59XHJcblxyXG4uYW5hbG9nLW5hbWUge1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcblxyXG5pbWcge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbnAge1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59Il19 */"
 
 /***/ }),
 
@@ -583,7 +583,7 @@ var DetailsPageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".form-group {\r\n    width: 200px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9tb2R1bGVzL2hvbWUtcGFnZS9kcm9wZG93bi1uYXZpZ2F0aW9uL2Ryb3Bkb3duLW5hdmlnYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7Q0FDaEIiLCJmaWxlIjoiYXBwL21vZHVsZXMvaG9tZS1wYWdlL2Ryb3Bkb3duLW5hdmlnYXRpb24vZHJvcGRvd24tbmF2aWdhdGlvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZvcm0tZ3JvdXAge1xyXG4gICAgd2lkdGg6IDIwMHB4O1xyXG59XHJcbiJdfQ== */"
+module.exports = ".form-group {\r\n    width: 200px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9ob21lLXBhZ2UvZHJvcGRvd24tbmF2aWdhdGlvbi9kcm9wZG93bi1uYXZpZ2F0aW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0NBQ2hCIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9ob21lLXBhZ2UvZHJvcGRvd24tbmF2aWdhdGlvbi9kcm9wZG93bi1uYXZpZ2F0aW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZm9ybS1ncm91cCB7XHJcbiAgICB3aWR0aDogMjAwcHg7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -921,7 +921,7 @@ var LoginModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvbW9kdWxlcy9sb2dpbi9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvbG9naW4vbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -1472,7 +1472,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Professional\Documents\Catalog\Catalog-front\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Алексей\Desktop\My pac\Catalog\Catalog-front\src\main.ts */"./src/main.ts");
 
 
 /***/ })
