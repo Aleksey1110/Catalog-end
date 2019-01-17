@@ -31,7 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Парсеры
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 
 // Passport middlewear
@@ -41,13 +43,6 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 // Роуты
-app.use('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/index.html'), function(err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
-});
 app.use('/api', indexRouter);
 app.use('/add', addCar);
 app.use('/edit', editCar);
@@ -58,6 +53,13 @@ app.use('/imgedit', imgeditcar);
 app.use('/imgremove', imgremove);
 app.use('/register', adminRegister);
 app.use('/login', adminLogin);
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
 
 // Запуск сервера
 app.listen(port, () => {
