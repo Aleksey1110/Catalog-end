@@ -7,7 +7,7 @@ const ctrlDetails = require('../controllers/details');
 
 // Http контроллеры
 // Получить марки машин
-router.get('/api', ctrlDetails.list);
+router.get('/', ctrlDetails.list);
 // Получить модели машин
 router.get('/api/:carid', ctrlDetails.markModelList);
 // Получить модификации машин
