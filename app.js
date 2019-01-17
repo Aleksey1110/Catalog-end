@@ -53,13 +53,13 @@ app.use('/imgedit', imgeditcar);
 app.use('/imgremove', imgremove);
 app.use('/register', adminRegister);
 app.use('/login', adminLogin);
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public/index.html'), function (err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
-});
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'public/index.html'), function (err) {
+//         if (err) {
+//             res.status(500).send(err);
+//         }
+//     });
+// });
 
 // Запуск сервера
 app.listen(port, () => {
