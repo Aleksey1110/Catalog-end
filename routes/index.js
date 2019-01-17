@@ -7,18 +7,18 @@ const ctrlDetails = require('../controllers/details');
 
 // Http контроллеры
 // Получить марки машин
-router.get('/api', ctrlDetails.list);
+router.get('/', ctrlDetails.list);
 // Получить модели машин
-router.get('/api/:carid', ctrlDetails.markModelList);
+router.get('/:carid', ctrlDetails.markModelList);
 // Получить модификации машин
-router.get('/api/:carid/:modelid', ctrlDetails.modelModificationList);
+router.get('/:carid/:modelid', ctrlDetails.modelModificationList);
 // Получить агрегаты машины
-router.get('/api/:carid/:modelid/:modifid', ctrlDetails.partsList);
+router.get('/:carid/:modelid/:modifid', ctrlDetails.partsList);
 // Получить детали машины
-router.get('/api/:carid/:modelid/:modifid/:unitid', ctrlDetails.detailItems);
+router.get('/:carid/:modelid/:modifid/:unitid', ctrlDetails.detailItems);
 // Получить составляющие детали машины
-router.get('/api/:carid/:modelid/:modifid/:unitid/:itemid', ctrlDetails.itemList);
+router.get('/:carid/:modelid/:modifid/:unitid/:itemid', ctrlDetails.itemList);
 // Получить аналоги
-router.get('/api/:carid/:modelid/:modifid/:unitid/:itemid/:anid', ctrlDetails.analogueList);
+router.get('/:carid/:modelid/:modifid/:unitid/:itemid/:anid', ctrlDetails.analogueList);
 
 module.exports = router;

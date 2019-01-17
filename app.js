@@ -41,7 +41,14 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 // Роуты
-app.use('/', indexRouter);
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public/index.html'), function(err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
+app.use('/api', indexRouter);
 app.use('/add', addCar);
 app.use('/edit', editCar);
 app.use('/remove', removeCar);
