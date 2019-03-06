@@ -7,7 +7,25 @@ const sendJsonResponse = function (res, status, content) {
     res.json(content);
 };
 
-// Получить список всех автомобилей
+// Получить список всех авто
+module.exports.listAll = function (req, res) {
+    Car
+        .find()
+        .exec((err, car) => {
+            if (!car) {
+                sendJsonResponse(res, 404, {
+                    "message": "There are no cars in db"
+                });
+                return;
+            } else if (err) {
+                sendJsonResponse(res, 404, err);
+            } else {
+                sendJsonResponse(res, 200, car);
+            };
+        });
+};
+
+// Получить список всех марок
 module.exports.list = function (req, res) {
     Car
         .find()

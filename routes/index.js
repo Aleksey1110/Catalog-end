@@ -8,6 +8,8 @@ const ctrlDetails = require('../controllers/details');
 // Http контроллеры
 // Получить марки машин
 router.get('/', ctrlDetails.list);
+// Получить все данные
+router.get('/all', ctrlDetails.listAll);
 // Получить модели машин
 router.get('/:carid', ctrlDetails.markModelList);
 // Получить модификации машин
